@@ -11,7 +11,18 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted", formData);
+    
+    console.log(formData);
+
+    // Send the form data to the server
+    fetch("http://localhost:3003/registration", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+
   };
 
   return (
